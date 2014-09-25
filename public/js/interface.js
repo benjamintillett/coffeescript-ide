@@ -3,7 +3,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		var fileName = $('.new-file input').val();
 		$.post('/files?file=' + fileName, { content: "" }, function(){
-			$('.files').append('<li>' + fileName + '</li>');
+			$('.files').append('<li>' + fileName + '<button class="edit">Edit</button><button class="delete">Delete</button></li>')
 		}).always(function(){
 			$('.new-file input').val('');
 		});
@@ -16,11 +16,13 @@ $(document).ready(function(){
 		$.ajax('/files?file=' + fileName, {
 			type: 'delete',
 			success: function() {
-				// $item.addClass('removed-item');
+				$item.addClass('removed-item');
 			}
 		}).success(function(){
 			console.log($item)
-			$($item).remove();
+			console.log($('h1'))
+			console.log($(this))
+			$('.removed-item').remove();
 		});	
 	})
 
