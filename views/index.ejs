@@ -1,0 +1,13 @@
+<h1>Welcome to Makers IDE</h1>
+
+<form class="new-file">
+<input type="text" name="file-name">
+<button class="add-file">+ New File</button>
+</form>
+
+<ul class="files">
+	<% files.forEach(function(file){ %>
+		<li><%- file %></li>
+	<% }) %>
+</ul>
+

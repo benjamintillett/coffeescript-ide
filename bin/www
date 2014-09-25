@@ -1,0 +1,13 @@
+require("coffee-script/register");
+
+
+var server = require('../app');
+
+var port = 3000;
+// port = process.env.PORT || 3000;
+
+
+server.listen(port, function() {
+  console.log('Express server listening on port ' + port);
+});
+// var debug = require('debug')('expressapp');
