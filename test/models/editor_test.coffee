@@ -15,3 +15,6 @@ describe 'Editor', ->
 	it "creates a file", ->
 		@editor.createFile 'ben.js', (file) ->
 			expect(fs.readdirSync('./code')).to.contain('ben.js')
+
+	it 'can read a file\'s contents', ->
+		expect(@editor.readFile '_test.txt').to.eql('Lorem ipsum')
