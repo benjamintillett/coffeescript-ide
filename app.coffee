@@ -18,5 +18,9 @@ app.post "/files", (request, response) ->
 	editor.createFile request.query.file, ->
 		response.send "hello"
 
+app.delete '/files', (request,response) ->
+	editor.deleteFile request.query.file, ->
+		response.send "hello"
+		
 module.exports = server
 

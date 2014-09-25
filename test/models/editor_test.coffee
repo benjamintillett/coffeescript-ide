@@ -15,3 +15,7 @@ describe 'Editor', ->
 	it "creates a file", ->
 		@editor.createFile 'ben.js', (file) ->
 			expect(fs.readdirSync('./code')).to.contain('ben.js')
+
+	it "deletes a file", -> 
+		@editor.deleteFile '_test.txt', ->
+			expect(fs.readdirSync('./code')).not.to.contain('_test.txt')

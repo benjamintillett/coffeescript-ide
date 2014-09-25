@@ -10,7 +10,9 @@ class Editor
 		fs.writeFile @directory + "/" + fileName, ''
 		callback()
 
-
+	deleteFile: (fileName, callback) ->
+		fs.unlink @directory + "/" + fileName
+		callback()
 
 
 module.exports = Editor

@@ -3,11 +3,20 @@
 <form class="new-file">
 <input type="text" name="file-name">
 <button class="add-file">+ New File</button>
+<style>
+	.files .removed-item { display: none;
+}
+
+</style>
 </form>
 
 <ul class="files">
 	<% files.forEach(function(file){ %>
-		<li><%- file %></li>
+		<li>
+			<span><%- file %></span>
+			<button class="edit">Edit</button>
+			<button class="delete">Delete</button>
+		</li>
 	<% }) %>
 </ul>
 
