@@ -14,8 +14,11 @@ class Editor
 		callback()
 
 
-	readFile: (fileName) ->
+	readFile: (fileName,callback) ->
 		fs.readFileSync @directory + '/' + fileName, 'utf8'
+
+	appendToFile: (fileName, addedText) ->
+		fs.appendFile @directory + '/' + fileName, addedText
 
 
 module.exports = Editor

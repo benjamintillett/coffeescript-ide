@@ -3,7 +3,7 @@ $(document).ready(function(){
 		e.preventDefault();
 		var fileName = $('.new-file input').val();
 		$.post('/files?file=' + fileName, { content: "" }, function(){
-			$('.files').append('<li>' + fileName + '<button class="edit">Edit</button><button class="delete">Delete</button></li>')
+			$('.files').append('<li>' + fileName + '<a class="edit" href="/edit?file=' + fileName + '"><button class="edit">Edit</button></a><button class="delete">Delete</button></li>')
 		}).always(function(){
 			$('.new-file input').val('');
 		});

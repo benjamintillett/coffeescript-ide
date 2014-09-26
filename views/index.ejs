@@ -3,16 +3,15 @@
 <form class="new-file">
 <input type="text" name="file-name">
 <button class="add-file">+ New File</button>
-<style>
-
-</style>
 </form>
 
 <ul class="files">
 	<% files.forEach(function(file){ %>
 		<li>
 			<span><%- file %></span>
-			<button class="edit">Edit</button>
+			<a class="edit" href="/edit?file=<%- file %>">
+				<button class="edit" >Edit</button>
+			</a>
 			<button class="delete">Delete</button>
 		</li>
 	<% }) %>

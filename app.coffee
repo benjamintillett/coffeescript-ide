@@ -21,6 +21,13 @@ app.post "/files", (request, response) ->
 app.delete '/files', (request,response) ->
 	editor.deleteFile request.query.file, ->
 		response.send "hello"
-		
+
+app.get '/edit', (request,response) ->
+	response.render "edit", { text: editor.readFile request.query.file }
+	console.log("hello")
+	console.log(request.query.file)
+			
+
+
 module.exports = server
 
