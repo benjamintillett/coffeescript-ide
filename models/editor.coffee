@@ -4,9 +4,8 @@ class Editor
 
 	constructor: (@directory) ->
 
-	createFile: (fileName, callback) ->
-		fs.writeFile @directory + "/" + fileName, ''
-		callback()
+	createFile: (fileName, content = '') ->
+		fs.writeFile @directory + "/" + fileName, content
 
 
 	deleteFile: (fileName, callback) ->

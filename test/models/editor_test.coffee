@@ -13,7 +13,7 @@ describe 'Editor', ->
 	# 	fs.unlink('./code/_test.txt')
 
 	it "creates a file", ->
-		@editor.createFile 'ben.js', (file) ->
+		@editor.createFile 'ben.js', ->
 			expect(fs.readdirSync('./code')).to.contain('ben.js')
 
 
@@ -29,4 +29,10 @@ describe 'Editor', ->
 	it "deletes a file", -> 
 		@editor.deleteFile '_test.txt', ->
 			expect(fs.readdirSync('./code')).not.to.contain('_test.txt')
+
+	it 'creates a file with content', ->
+		@editor.createFile '_ethel.js', 'content', ->
+			expect(@editor.readFile '_ethel.js').to.eql('content')
+
+
 
