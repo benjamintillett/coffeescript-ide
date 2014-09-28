@@ -17,3 +17,12 @@
 	<% }) %>
 </ul>
 
+<template id='new-file-template'>
+<li>{{filename}}
+	<a class="edit" href="/edit?file={{filename}}">
+		<button class="edit">Edit</button>
+	</a>
+	<button class="delete">Delete</button>
+</li>
+</template>
+

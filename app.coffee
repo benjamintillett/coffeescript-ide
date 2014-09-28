@@ -17,15 +17,29 @@ app.get '/', (request, response) ->
   response.render 'index', { files: fs.readdirSync('./code') }
 
 app.post "/files", (request, response) ->
-	editor.createFile request.query.file, request.body.content.trim(), ->
-		response.render "edit", { Dilename: request.query.file, text: editor.readFile request.query.file }
+	fileName = request.query.file
+	editor.createFile fileName, request.body.content.trim(), ->
+		response.send "ben"
+		# response.redirect('/edit?file=' + fileName);
+
 
 app.delete '/files', (request,response) ->
 	editor.deleteFile request.query.file, ->
+		console.log("hello")
 		response.send "hello"
 
 app.get '/edit', (request,response) ->
-	response.render "edit", { Dilename: request.query.file, text: editor.readFile request.query.file }
+	fileName = request.query.file
+	console.log(fileName)
+	fs.readFile 'code/' + fileName, (err,data)->
+		response.render 'edit', { Dilename: fileName, text: data }
+
+
+
+
+
+
+	# response.render "edit", { Dilename: request.query.file, text: editor.readFile request.query.file }
 	
 
 module.exports = server
